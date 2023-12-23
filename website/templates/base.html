@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/css/global.css" />
+    <script
+      src="https://kit.fontawesome.com/4c0bd0f42d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{% block title %}Home{% endblock %} {% block content %}</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="home.html"
+          ><img src="../../static/images/logo.png" alt=""
+        /></a>
+        <form class="form-inline">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+        <nav>
+          <a class="current" href="#"
+            ><i class="fa-solid fa-house current-i"></i
+          ></a>
+          <a href="user_profile.html"><i class="fa-solid fa-user"></i> </a
+          ><a href="#"><i class="fa-brands fa-facebook-messenger"></i> </a>
+          <a href="#"><i class="fa-solid fa-bell"></i></a>
+          <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
+        </nav>
+      </div>
+    </header>
+  </body>
+</html>
