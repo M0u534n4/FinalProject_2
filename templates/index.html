@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/global.css" />
+    <script
+      src="https://kit.fontawesome.com/4c0bd0f42d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Welcome</title>
+  </head>
+  <body>
+    <section class="main-pg-s">
+      <div class="container">
+        <h1>Welcome</h1>
+        <div class="welcome-div">
+          <img src="../static/images/logo.png" alt="" />
+          <ul>
+            <li>comfy place for artists</li>
+            <li>Interesting people</li>
+            <li>Cool ideas</li>
+            <li>comfy place for artists</li>
+          </ul>
+        </div>
+        <div class="join_us-div">
+          <h1>Join Us</h1>
+          <div class="btn-d">
+            <button><a href="{{ url_for('login') }}">Login</a></button>
+            <h2>Or</h2>
+            <button><a href="{{ url_for('sign_up') }}">Sign Up</a></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

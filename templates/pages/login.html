@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content
+%}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/css/global.css" />
+    <script
+      src="https://kit.fontawesome.com/4c0bd0f42d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Login</title>
+  </head>
+  <body>
+    <section class="login-s">
+      <div class="container">
+        <h2>Login</h2>
+        <div class="login-form">
+          <form method="POST">
+            <div class="form-item-email">
+              {{ form.email (class="input", placeholder="Email") }}
+            </div>
+            <div class="form-item-password">
+              {{ form.password (class="input", placeholder="Password") }}
+            </div>
+
+            <div class="form-btns">
+              <style>
+                .form-btns .login {
+                  margin: auto;
+                  font-size: 20px;
+                  padding: 5px 15px;
+                  border: 0;
+                  border-radius: 15px;
+                  color: black;
+                  background: #efed73;
+                  width: 280px;
+                  cursor: pointer;
+                  border-bottom: 2px solid black;
+                  border-right: 2px solid black;
+                  font-family: "Amatic SC", sans-serif, bold;
+                  border-radius: 5px;
+                }
+              </style>
+              {{ form.submit (class="login") }}
+              <div class="options">
+                Don't have an account?
+                <a href="{{ url_for('sign_up') }}">Sign Up here</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+{% endblock %}
