@@ -27,8 +27,6 @@ def  user():
 
 
 
-auth = Blueprint('auth', __name__)
-
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
