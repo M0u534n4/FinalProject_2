@@ -42,5 +42,4 @@ if __name__ == "__main__":
         normal_user.create()
 
 
-lol
 
