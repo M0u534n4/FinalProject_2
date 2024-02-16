@@ -23,7 +23,6 @@ class User(db.Model, BaseModel, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String)
     password = db.Column(db.String)
-    role = db.Column(db.String)
     
 @login_manager.user_loader
 def load_user(user_id):
@@ -40,6 +39,7 @@ if __name__ == "__main__":
         
         normal_user = User(username="normal_user", password="password", role="guest")
         normal_user.create()
+        
 
 
 

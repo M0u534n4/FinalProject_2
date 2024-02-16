@@ -1,9 +1,10 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
-from flask_login import login_user, login_required, logout_user, current_user
+from flask import Blueprint, render_template, redirect, url_for, session
+from flask_login import login_user, login_required, logout_user, current_user,LoginManager
 from form import SignUpForm, LoginForm
 from models import User
 from app import app
 
+login_manager = LoginManager()
 
 user = [
     
@@ -18,7 +19,7 @@ def  welcome():
 @app.route('/home', methods=['GET', 'POST'])
 @login_required
 def home():
-    return render_template("pages/home.html", user=current_user)
+    return render_template("pages/home.html")
 
 
 @app.route('/user')
@@ -30,16 +31,14 @@ def  user():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form=LoginForm()
-    
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user is not None and user.verify_password(form.password.data):
-            login_user(user)
-            redirect_url = request.args.get('next') or url_for('main.login')
-            return redirect(redirect_url)
+    form = LoginForm()
 
-    return render_template("pages/login.html", user=current_user, form=form)
+    if form.validate_on_submit():
+        user = User.query.filter(User.email == form.email.data).first()
+        if user and user.password == form.password.data:
+            login_user(user)
+
+    return render_template("pages/login.html", form=form)
 
 
 @app.route('/logout')
@@ -53,8 +52,7 @@ def logout():
 def sign_up():
     form = SignUpForm()   
     if form.validate_on_submit():
-        user = User (email=form.email.data, password=form.password.data)
+        user = User(email=form.email.data, password=form.password.data)
         user.create()
-        return redirect(url_for('login'))
 
     return render_template("pages/sign_up.html", user=current_user, form=form)
