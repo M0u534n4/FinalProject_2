@@ -1,79 +1,56 @@
-{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
-content %}
+{% extends "base.html" %} {% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../static/css/global.css" />
-    <script
-      src="https://kit.fontawesome.com/4c0bd0f42d.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Sign Up</title>
-  </head>
-  <body>
-    <section class="signup-s">
-      <div class="container">
-        <h2>Sign Up</h2>
-        <div class="login-form">
-          {% for field in form.errors %} {% for error in form.errors[field] %}
-          <div class="alert alert-danger">
-            <strong>Error!</strong> {{error}}
-          </div>
-          {% endfor %} {% endfor %}
-          <form method="POST">
-            {{ form.hidden_tag() }}
-            <div class="form-item">
-              {{ form.firstname (class="input", placeholder="FirstName") }} {{
-              form.lastname (class="input", placeholder="LastName") }}
-            </div>
-            <div class="form-item-email">
-              {{ form.email (class="input", placeholder="Email") }}
-            </div>
-            <div class="form-item-password">
-              {{ form.password (class="input", placeholder="Password") }} {{
-              form.confirm (class="input", placeholder="Confirm Password") }}
-            </div>
-            <div class="remember-box">
-              {{ form.accept_tos (class="remember-box") }}
-              <p>I accept the Terms of Use & Privacy Policy</p>
-            </div>
-            <div class="form-btns">
-              <style>
-                .form-btns .signup {
-                  margin: auto;
-                  font-size: 20px;
-                  padding: 5px 15px;
-                  border: 0;
-                  border-radius: 15px;
-                  color: black;
-                  background: #efed73;
-                  width: 280px;
-                  cursor: pointer;
-                  border-bottom: 2px solid black;
-                  border-right: 2px solid black;
-                  font-family: "Amatic SC", sans-serif, bold;
-                  border-radius: 5px;
-                }
-              </style>
-              {{ form.submit (class="signup") }}
-              <div class="options">
-                Already have an account?
-                <a href="{{ url_for('login') }}">Login here</a>
-              </div>
-            </div>
-          </form>
+<section class="signup-s">
+  <div class="container">
+    <h2>Sign Up</h2>
+    <div class="login-form">
+      {% for field in form.errors %} {% for error in form.errors[field] %}
+      <div class="alert alert-danger"><strong>Error!</strong> {{error}}</div>
+      {% endfor %} {% endfor %}
+      <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-item">
+          {{ form.firstname (class="input", placeholder="FirstName") }} {{
+          form.lastname (class="input", placeholder="LastName") }}
         </div>
-      </div>
-    </section>
-  </body>
-</html>
+        <div class="form-item-email">
+          {{ form.email (class="input", placeholder="Email") }}
+        </div>
+        <div class="form-item-password">
+          {{ form.password (class="input", placeholder="Password") }} {{
+          form.confirm (class="input", placeholder="Confirm Password") }}
+        </div>
+        <div class="remember-box">
+          {{ form.accept_tos (class="remember-box") }}
+          <p>I accept the Terms of Use & Privacy Policy</p>
+        </div>
+        <div class="form-btns">
+          <style>
+            .form-btns .signup {
+              margin: auto;
+              font-size: 20px;
+              padding: 5px 15px;
+              border: 0;
+              border-radius: 15px;
+              color: black;
+              background: #efed73;
+              width: 280px;
+              cursor: pointer;
+              border-bottom: 2px solid black;
+              border-right: 2px solid black;
+              font-family: "Amatic SC", sans-serif, bold;
+              border-radius: 5px;
+            }
+          </style>
+          {{ form.submit (class="signup") }}
+          <div class="options">
+            Already have an account?
+            <a href="{{ url_for('login') }}">Login here</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

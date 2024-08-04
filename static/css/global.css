@@ -601,6 +601,13 @@ body .login-s p {
   border-right: 2px solid black;
   border-radius: 5px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.home-s-1 .container img {
+  width: 400px;
 }
 .home-s-1 .container .poster-div {
   display: flex;
